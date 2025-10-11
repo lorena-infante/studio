@@ -52,7 +52,7 @@ export function CodeEditor() {
       try {
         const result = await codeImprovementSuggestions({ code });
         if (!result) {
-            return { ...initialState, error: 'Failed to get suggestions from the AI.' };
+          return { ...initialState, error: 'Failed to get suggestions from the AI.' };
         }
         return { ...result, error: null };
       } catch (e) {
@@ -64,10 +64,16 @@ export function CodeEditor() {
 
   return (
     <div className="space-y-8">
-       <div>
-        <h1 className="text-3xl font-headline font-bold">Code Review Assistant</h1>
+      <div>
+        <h1 className="text-3xl font-headline font-bold">Final Assessment</h1>
         <p className="text-muted-foreground mt-2">
-            Paste your code below to get intelligent improvement suggestions.
+          In the code editor, we've left a simple function with some room for improvement.
+
+          Identify: Read the code and find at least two elements that don't follow PEP 8 style conventions (these could be variable names, spacing, etc.).
+
+          Refactor: Correct the code directly in the editor to align it with best practices.
+
+          Check: When you think it's ready, press "Next" to compare your solution with ours.
         </p>
       </div>
 
@@ -75,63 +81,23 @@ export function CodeEditor() {
         <CardHeader>
           <CardTitle className="font-headline text-2xl">Your Code</CardTitle>
           <CardDescription>
-            Enter the code snippet you want to get feedback on.
+            Enter the code snippet you want to get feedback on
+            <br></br>
+            <br></br>
+
+            <a
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://clozeitllm.streamlit.app/"
+            >
+              HERE
+            </a>
           </CardDescription>
+
         </CardHeader>
-        <CardContent>
-          <form action={formAction} className="space-y-4">
-            <Textarea
-              name="code"
-              placeholder="def my_function( a, b ):..."
-              className="min-h-[200px] font-code text-sm"
-              required
-            />
-            {state?.error && (
-                <Alert variant="destructive">
-                    <AlertTitle>Error</AlertTitle>
-                    <AlertDescription>{state.error}</AlertDescription>
-                </Alert>
-            )}
-            <SubmitButton />
-          </form>
-        </CardContent>
+
       </Card>
-
-      {state?.suggestions && (
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 font-headline text-2xl">
-              <Code /> Improved Code
-            </CardTitle>
-            <CardDescription>
-              Here is a refactored version of your code with our suggestions applied.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <pre className="bg-muted p-4 rounded-lg overflow-x-auto">
-                <code className="font-code text-sm">{state.suggestions}</code>
-            </pre>
-          </CardContent>
-        </Card>
-      )}
-
-      {state?.explanation && (
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 font-headline text-2xl">
-              <Bot /> Explanation
-            </CardTitle>
-            <CardDescription>
-              Here&apos;s a breakdown of the changes and why they improve the code.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-          <pre className="bg-muted p-4 rounded-lg overflow-x-auto whitespace-pre-wrap">
-                <code className="font-code text-sm leading-relaxed">{state.explanation}</code>
-            </pre>
-          </CardContent>
-        </Card>
-      )}
     </div>
   );
 }

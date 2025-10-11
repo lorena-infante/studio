@@ -1,8 +1,9 @@
 'use client';
 import type { ReactNode } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { BookOpen, Code, LayoutDashboard, Rocket } from 'lucide-react';
+import { BookOpen, Code, LayoutDashboard } from 'lucide-react';
 import {
   Sidebar,
   SidebarContent,
@@ -14,6 +15,7 @@ import {
   SidebarProvider,
 } from '@/components/ui/sidebar';
 import { Header } from './header';
+import '@/styles/default.css';
 
 const navItems = [
   { href: '/', label: 'Dashboard', icon: LayoutDashboard },
@@ -28,11 +30,18 @@ export function AppLayout({ children }: { children: ReactNode }) {
     <SidebarProvider>
       <Sidebar>
         <SidebarHeader>
-          <div className="flex items-center gap-3 p-2">
-            <Rocket className="h-6 w-6 text-primary" />
-            <h2 className="text-lg font-headline font-semibold">
+          <div>
+            <Image
+              src="/clozit_logo.png"
+              alt="Clozit Logo"
+              width={40}
+              height={40}
+              className="logo-img"
+              priority
+            />
+            <h1 className="text-lg font-headline font-semibold">
               Onboarding
-            </h2>
+            </h1>
           </div>
         </SidebarHeader>
         <SidebarContent>
