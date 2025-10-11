@@ -1,3 +1,34 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "user-avatar",
+      "description": "User avatar placeholder",
+      "imageUrl": "https://picsum.photos/seed/avatar1/100/100",
+      "imageHint": "person portrait"
+    },
+    {
+      "id": "badge-python",
+      "description": "Python expert badge",
+      "imageUrl": "https://picsum.photos/seed/badge1/64/64",
+      "imageHint": "python logo"
+    },
+    {
+      "id": "badge-js",
+      "description": "JavaScript wizard badge",
+      "imageUrl": "https://picsum.photos/seed/badge2/64/64",
+      "imageHint": "javascript logo"
+    },
+    {
+      "id": "badge-fast-learner",
+      "description": "Fast learner badge",
+      "imageUrl": "https://picsum.photos/seed/badge3/64/64",
+      "imageHint": "brain lightning"
+    },
+    {
+      "id": "badge-onboarding",
+      "description": "Onboarding complete badge",
+      "imageUrl": "https://picsum.photos/seed/badge4/64/64",
+      "imageHint": "rocket launch"
+    }
+  ]
 }
