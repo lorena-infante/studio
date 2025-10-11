@@ -65,9 +65,15 @@ export function CodeEditor() {
   return (
     <div className="space-y-8">
        <div>
-        <h1 className="text-3xl font-headline font-bold">Code Review Assistant</h1>
+        <h1 className="text-3xl font-headline font-bold">Final Assessment</h1>
         <p className="text-muted-foreground mt-2">
-            Paste your code below to get intelligent improvement suggestions.
+            In the code editor, we've left a simple function with some room for improvement.
+
+Identify: Read the code and find at least two elements that don't follow PEP 8 style conventions (these could be variable names, spacing, etc.).
+
+Refactor: Correct the code directly in the editor to align it with best practices.
+
+Check: When you think it's ready, press "Next" to compare your solution with ours.
         </p>
       </div>
 
